@@ -3,6 +3,19 @@ package furn.bean;
 import java.math.BigDecimal;
 
 public class Furn {
+    public Furn(Integer id, String name, String marker, BigDecimal price, Integer sales, Integer stock, String img_path) {
+        this.id = id;
+        this.name = name;
+        this.marker = marker;
+        this.price = price;
+        this.sales = sales;
+        this.stock = stock;
+        this.img_path = img_path;
+    }
+
+    public Furn() {
+    }
+
     private Integer id;
 
     private String name;

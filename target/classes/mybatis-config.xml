@@ -7,6 +7,4 @@
     <typeAliases>
         <package name="furn.bean"/>
     </typeAliases>
-
-
 </configuration>
