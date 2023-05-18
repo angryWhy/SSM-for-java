@@ -6,6 +6,8 @@ import furn.service.FurnService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class FurnServiceIpl implements FurnService {
     //注入FurnMapper接口对象
@@ -22,4 +24,20 @@ public class FurnServiceIpl implements FurnService {
         return furn;
     }
 
+    @Override
+    public List<Furn> selectAll() {
+        return furnMapper.selectByExample(null);
+    }
+
+    @Override
+    public void update(Furn furn) {
+        int i = furnMapper.updateByPrimaryKeySelective(furn);
+        System.out.println(i);
+    }
+
+    @Override
+    public void deleted(Integer id) {
+        int i = furnMapper.deleteByPrimaryKey(id);
+        System.out.println(i);
+    }
 }
