@@ -9,6 +9,10 @@
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
 <!--    配置前端控制器，分发控制器-->
     <servlet>
         <servlet-name>springDispatcherServlet</servlet-name>

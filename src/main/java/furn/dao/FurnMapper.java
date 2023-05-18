@@ -4,6 +4,10 @@ import furn.bean.Furn;
 import furn.bean.FurnExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+
 
 public interface FurnMapper {
     long countByExample(FurnExample example);

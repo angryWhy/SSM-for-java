@@ -102,22 +102,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="furn.bean.Furn">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      VALUES IDENTITY_VAL_LOCAL()
-    </selectKey>
-    insert into furn (name, marker, price, 
-      sales, stock, img_path
-      )
-    values (#{name,jdbcType=VARCHAR}, #{marker,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+
+    insert into furn (id, name, marker, price,sales, stock, img_path)
+    values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR}, #{marker,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
       #{sales,jdbcType=INTEGER}, #{stock,jdbcType=INTEGER}, #{img_path,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="furn.bean.Furn">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      VALUES IDENTITY_VAL_LOCAL()
-    </selectKey>
+
     insert into furn
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="name != null">
         name,
       </if>

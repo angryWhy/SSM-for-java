@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +15,7 @@
     </properties>
     <dependencies>
 
-<!--        引入测试库-->
+        <!--        引入测试库-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -23,61 +23,69 @@
             <scope>test</scope>
         </dependency>
 
-<!--        引入springMVC-->
+        <!--        引入springMVC-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>5.3.8</version>
         </dependency>
 
-<!--        引入spring-jdbc，支持事务相关-->
+        <!--        引入spring-jdbc，支持事务相关-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>5.3.8</version>
         </dependency>
 
-<!--        引入spring aspects 切面编程需要的jar-->
+        <!--        引入spring aspects 切面编程需要的jar-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>5.3.8</version>
         </dependency>
 
-<!--        引入mybatis-->
+        <!--        引入mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
 
-<!--        引入druid数据库连接池-->
+        <!--        引入druid数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.2.6</version>
         </dependency>
 
-<!--        引入mysql驱动-->
+        <!--        引入mysql驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.49</version>
         </dependency>
 
-<!--        引入mybatis整合spring的适配包-->
+        <!--        引入mybatis整合spring的适配包-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>2.0.6</version>
+
         </dependency>
 
-<!--        mybatis generator逆向工程包-->
+        <!--        mybatis generator逆向工程包-->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <!-- Maven -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>
