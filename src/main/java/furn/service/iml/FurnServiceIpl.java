@@ -1,9 +1,12 @@
 package furn.service.iml;
 
+import com.github.pagehelper.util.StringUtil;
 import furn.bean.Furn;
+import furn.bean.FurnExample;
 import furn.dao.FurnMapper;
 import furn.service.FurnService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,5 +42,19 @@ public class FurnServiceIpl implements FurnService {
     public void deleted(Integer id) {
         int i = furnMapper.deleteByPrimaryKey(id);
         System.out.println(i);
+    }
+
+    @Override
+    public List<Furn> searchByCondition(String name) {
+        FurnExample furnExample = new FurnExample();
+        //通过criteria，可以设置查询的条件
+        FurnExample.Criteria criteria = furnExample.createCriteria();
+        //判断
+        if(StringUtils.hasText(name)){
+            criteria.andNameLike("%"+name+"%");
+        }else {
+
+        }
+        return furnMapper.selectByExample(furnExample);
     }
 }

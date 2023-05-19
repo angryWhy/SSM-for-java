@@ -1,5 +1,8 @@
 package furn.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import furn.bean.Furn;
 import furn.bean.Msg;
 import furn.dao.FurnMapper;
@@ -59,6 +62,32 @@ public class FurnController {
         furnService.deleted(id);
         Msg msg = Msg.success();
         msg.setCode(200);
+        msg.setMsg("ok");
+        return msg;
+    }
+
+    @RequestMapping("/furn-by-page")
+    @ResponseBody
+    public Msg pagesFurn(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "20")Integer pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        List<Furn> furns = furnService.selectAll();
+        PageInfo pageInfo = new PageInfo(furns, pageSize);
+        Msg msg = Msg.success();
+        msg.setCode(200);
+        msg.getExtend().put("list",pageInfo);
+        msg.setMsg("ok");
+        return msg;
+    }
+
+    @RequestMapping("/furn-by-condition")
+    @ResponseBody
+    public Msg pagesConditionFurn(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "20")Integer pageSize,@RequestParam(defaultValue = "")String condition){
+        PageHelper.startPage(pageNum, pageSize);
+        List<Furn> furns = furnService.searchByCondition(condition);
+        PageInfo pageInfo = new PageInfo(furns, pageSize);
+        Msg msg = Msg.success();
+        msg.setCode(200);
+        msg.getExtend().put("list",pageInfo);
         msg.setMsg("ok");
         return msg;
     }

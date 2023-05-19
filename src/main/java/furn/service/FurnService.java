@@ -18,4 +18,6 @@ public interface FurnService {
     //删除
     void deleted(Integer id);
 
+    //根据家具名称进行查询
+    List<Furn> searchByCondition(String name);
 }

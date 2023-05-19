@@ -7,4 +7,11 @@
     <typeAliases>
         <package name="furn.bean"/>
     </typeAliases>
+<!--    配置分页拦截器-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+<!--            如果页数很大，就显示最后一页-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
 </configuration>
